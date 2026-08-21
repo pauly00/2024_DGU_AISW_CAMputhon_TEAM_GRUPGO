@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './func2.css';
 import LineGraph from '../dailyschedule/linegraph';
 import CustomPieChart from './PieChart';
-import Dailyschedule from '../dailyschedule/dailyschedule';
 
 const events = [
   { starttime: '10:30 AM', endtime: '12:00 PM', label: '데이터베이스' },

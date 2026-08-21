@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Toggle from '../toggle-button/toggle';
 import LineAnimation from '../animations/lineanimation';
 import './home.css';
@@ -6,9 +6,6 @@ import Schedule from '../asset/schedule.png';
 
 
 const Home: React.FC = () => {
-    const [defaultText, setDefaultText] = useState('text 1');
-    const [hoverText, setHoverText] = useState('text 2');
-  
     return (
       <div>
         <LineAnimation />
@@ -22,7 +19,7 @@ const Home: React.FC = () => {
             <Toggle defaultText={'Discord channel'} hoverText={'Join In Discord !'} href='https://discord.gg/hdc6fndc'/>
           </div>
           <div className='imagee'>
-            <img src = {Schedule}/>
+            <img src={Schedule} alt="일정 미리보기" />
           </div>
         </div>
       </div>

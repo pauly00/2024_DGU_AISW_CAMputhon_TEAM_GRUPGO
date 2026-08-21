@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from "axios";
 import './signup.css';
 import { useNavigate } from 'react-router-dom';
+import { signup as signupRequest } from '../../api/authApi';
 
 const Signup: React.FC = () => {
 
@@ -69,14 +69,15 @@ const Signup: React.FC = () => {
 
   // API 호출
   try {
-    await axios.post("http://localhost:8080/User/join", user);
+    await signupRequest({ ...user, role: 'U' });
     alert("회원가입이 완료되었습니다."); // 성공 메시지
-    // todo: 초기 페이지로 이동
-    navigate('/'); // 로그인 후 이동
-
-  } catch (error) {
+    navigate('/login'); // 로그인 화면 이동
+  } catch (error: any) {
+    const message =
+      error?.response?.data?.message ||
+      "회원가입에 실패했습니다. 다시 시도해 주세요.";
     console.error("회원가입 중 오류 발생:", error);
-    alert("회원가입에 실패했습니다. 다시 시도해 주세요.");
+    alert(message);
   }
 };
 

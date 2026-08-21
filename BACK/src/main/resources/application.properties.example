@@ -1,0 +1,13 @@
+# 설정 예시 파일
+# 로컬은 기본 local 프로필 (H2) 로 즉시 실행 가능
+# MySQL 사용 시 아래 환경 변수 설정 후 mysql 프로필 실행
+
+# 실행 프로필 선택 (local 또는 mysql)
+spring.profiles.active=local
+
+# MySQL 접속 정보 (mysql 프로필 사용 시)
+# DB_HOST=localhost
+# DB_PORT=3306
+# DB_NAME=grupgo
+# DB_USERNAME=root
+# DB_PASSWORD=root

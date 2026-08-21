@@ -1,79 +1,179 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;500;600&display=swap");
+/* 로그인 페이지 레이아웃 */
+.login-page {
+  display: flex;
+  min-height: calc(100vh - 60px);
+  width: 100%;
+  background: #f4f6fb;
+}
 
-.login-container {
-    display: flex;
+/* 좌측 브랜드 영역 */
+.login-visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f6ef7 0%, #6a3ff5 100%);
+}
+
+.login-brand {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0 0 16px;
+}
+
+.login-tagline {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0 0 32px;
+  opacity: 0.95;
+}
+
+.login-keywords {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.login-keywords li {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 15px;
+}
+
+/* 우측 로그인 폼 영역 */
+.login-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.login-form h2 {
+  margin: 0 0 24px;
+  font-size: 26px;
+  color: #1f2937;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4f6ef7;
+}
+
+.login-error {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fdecec;
+  color: #c0392b;
+  font-size: 14px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: #4f6ef7;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-button:hover:not(:disabled) {
+  background: #3d5ae0;
+}
+
+.login-button:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+}
+
+.login-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.login-links a {
+  color: #4f6ef7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+.login-hint {
+  margin: 20px 0 0;
+  font-size: 13px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* 반응형 (모바일) */
+@media (max-width: 768px) {
+  .login-page {
     flex-direction: column;
+  }
+
+  .login-visual {
+    padding: 40px 24px;
+    text-align: center;
     align-items: center;
+  }
+
+  .login-brand {
+    font-size: 40px;
+  }
+
+  .login-keywords {
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: #292a4e;
-    font-family: Poppins;
   }
-  
-  .login-form {
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+
+  .login-panel {
+    padding: 24px;
   }
-  
-  .login-form h2 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .login-button:hover {
-    background-color: #45a049;
-  }
-  
-  .signup-link {
-    color:#ccc;
-    margin-top: 15px;
-    text-align: center;
-  }
-  
-  .signup-button {
-    font-family: Poppins;
-    background: none;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    text-decoration: underline;
-    padding: 0;
-    font-size: 16px;
-  }
-  
-  .signup-button:hover {
-    color: #0056b3;
-  }
+}

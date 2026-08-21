@@ -4,20 +4,17 @@ import axios from 'axios';
 import QR from './qr.png';
 
 const QRPage: React.FC = () => {
-    const [qrData, setQrData] = React.useState('');
-
     useEffect(() => {
         const fetchQrData = async () => {
             try{
-                const response = await axios.get('http://localhost:8080/qr'); // QR 데이터 요청
-                setQrData(response.data); // 응답 데이터 저장
+                await axios.get('http://localhost:8080/qr'); // QR 데이터 요청
             } catch (e) {
                 console.error(e);
             }
         };
 
         fetchQrData();
-    }, []); // 컴포넌트가 마운트될 때 한 번 실행
+    }, []); // 마운트 시 1회 실행
 
 
   return (

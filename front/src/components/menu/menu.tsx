@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './menu.css';
 import Background from '../asset/menu-background.png';
 import Cart from './cartt';
+import { getAllFood } from '../../api/foodApi';
 
 import Sam from '../asset/삼겹살김치철판.png';
 import Cheeze from '../asset/치즈불닭철판.png';
@@ -32,15 +32,14 @@ const Menu: React.FC = () => {
   useEffect(() => {
     const getAllMenu = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/Food/getAll");
-        console.log('Food Data:', response.data);
+        const foods = await getAllFood();
 
-        // 데이터를 변환하여 추가 데이터 형식에 맞게 설정
-        const transformedData = response.data.map((item: any) => ({
-          imgSrc: '', // 여기서 이미지를 비워둠
+        // 서버 메뉴를 카드 형식으로 변환
+        const transformedData = foods.map((item) => ({
+          imgSrc: '', // 서버 메뉴는 기본 이미지 사용
           title: item.name,
           description: item.foodInfo,
-          price: `${item.price}원` // price를 문자열로 변환
+          price: item.waiting != null ? `대기 ${item.waiting}팀` : '',
         }));
 
         setAdditionalRamenData(transformedData);

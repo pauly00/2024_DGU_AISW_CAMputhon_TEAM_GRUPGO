@@ -16,11 +16,12 @@ public class FoodService {
 
         private final FoodRepository foodRepository;
 
-        // 음식 등록
-        public void saveFood(Food food) {
+        // 음식 등록 (중복 확인 후 저장)
+        public Food saveFood(Food food) {
             if (foodRepository.findByName(food.getName()).isPresent()) {
                 throw new IllegalArgumentException("동일한 음식이 존재 합니다.");
             }
+            return foodRepository.save(food);
         }
 
         //조회

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProfileImg from '../asset/BasicProfile.png';
 import setting from "../asset/setting.png";
 import './loginProfile.css';
@@ -7,11 +7,10 @@ import { useNavigate } from 'react-router-dom';
 
 function AfterLogin() {
   const { logout } = useAuth();
-  const [showProfile, setShowProfile] = useState(false);
   const navigate = useNavigate();
 
   const handleSettingClick = () => {
-    setShowProfile(true);
+    // 설정 화면 준비중
   };
 
   const handleLogoutClick = () => {
